@@ -3,7 +3,6 @@ package com.app.indicator_scroll
 import androidx.recyclerview.widget.RecyclerView
 
 internal open class ItemIndicatorsBuilder {
-
     open fun buildItemIndicators(
         recyclerView: RecyclerView,
         getItemIndicator: (Int) -> FastScrollItemIndicator?,

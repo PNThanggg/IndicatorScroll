@@ -15,6 +15,7 @@ import com.app.indicator_scroll.ListItem
 import com.app.indicator_scroll.R
 import com.app.indicator_scroll.SAMPLE_DATA_TEXT_AND_HEADERS
 import com.app.indicator_scroll.SampleAdapter
+import java.util.Locale
 
 class TextWithIconFragment : Fragment() {
 
@@ -49,7 +50,7 @@ class TextWithIconFragment : Fragment() {
                           item
                               .title
                               .substring(0, 1)
-                              .toUpperCase()
+                              .uppercase(Locale.ROOT)
                       )
                   }
                 }

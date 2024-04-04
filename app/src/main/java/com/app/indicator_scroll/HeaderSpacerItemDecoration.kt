@@ -35,5 +35,4 @@ class HeaderSpacerItemDecoration(
             bottom = 0
         }
     }
-
 }

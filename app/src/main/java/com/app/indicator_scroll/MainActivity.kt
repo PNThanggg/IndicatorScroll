@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             menuView.isGone = isShowingSample
             sampleToolbarView.isGone = !isShowingSample
             sampleToolbarView.title = sampleFragment?.let {
-                Samples.values().find { it.fragmentClass == sampleFragment::class.java }?.title
+                Samples.entries.find { it.fragmentClass == sampleFragment::class.java }?.title
             }
         }
 

@@ -47,30 +47,30 @@ class FastScrollerView @JvmOverloads constructor(
     defStyleAttr,
     defStyleRes
 ) {
-    var iconSize: Int = 0
+    private var iconSize: Int = 0
         set(value) {
             field = value
             bindItemIndicatorViews()
         }
 
-    var iconColor: ColorStateList? = null
+    private var iconColor: ColorStateList? = null
         set(value) {
             field = value
             pressedIconColor = value?.getColorForState(intArrayOf(android.R.attr.state_activated))
             bindItemIndicatorViews()
         }
-    var textAppearanceRes: Int = 0
+    private var textAppearanceRes: Int = 0
         set(value) {
             field = value
             bindItemIndicatorViews()
         }
-    var textColor: ColorStateList? = null
+    private var textColor: ColorStateList? = null
         set(value) {
             field = value
             pressedTextColor = value?.getColorForState(intArrayOf(android.R.attr.state_activated))
             bindItemIndicatorViews()
         }
-    var textPadding: Float = 0f
+    private var textPadding: Float = 0f
         set(value) {
             field = value
             bindItemIndicatorViews()
@@ -79,7 +79,7 @@ class FastScrollerView @JvmOverloads constructor(
     private var pressedIconColor: Int? = null
     private var pressedTextColor: Int? = null
 
-    internal var itemIndicatorsBuilder: ItemIndicatorsBuilder = ItemIndicatorsBuilder()
+    private var itemIndicatorsBuilder: ItemIndicatorsBuilder = ItemIndicatorsBuilder()
 
     val itemIndicatorSelectedCallbacks: MutableList<ItemIndicatorSelectedCallback> = ArrayList()
 
@@ -108,7 +108,7 @@ class FastScrollerView @JvmOverloads constructor(
      * The function will be called when building the list of indicators, which happens after the
      * RecyclerView's adapter's data changes. It will be called on the UI thread.
      */
-    var showIndicator: ((FastScrollItemIndicator, Int, Int) -> Boolean)? by onUpdate { _ ->
+    private var showIndicator: ((FastScrollItemIndicator, Int, Int) -> Boolean)? by onUpdate { _ ->
         postUpdateItemIndicators()
     }
 
@@ -119,7 +119,7 @@ class FastScrollerView @JvmOverloads constructor(
      *
      * @see scrollToPosition
      */
-    var useDefaultScroller: Boolean = true
+    private var useDefaultScroller: Boolean = true
     private var lastSelectedPosition: Int? = null
     private var isUpdateItemIndicatorsPosted = false
 
@@ -129,7 +129,7 @@ class FastScrollerView @JvmOverloads constructor(
      * The list of indicators being shown. This will contain no duplicates, and will be built with
      * respect to the iteration order of the RecyclerView's adapter's data.
      */
-    val itemIndicators: List<FastScrollItemIndicator>
+    private val itemIndicators: List<FastScrollItemIndicator>
         get() = itemIndicatorsWithPositions.map(ItemIndicatorWithPosition::first)
 
     init {
